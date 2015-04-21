@@ -15,6 +15,7 @@ var redPrice = 10;
 var money = 0;
 
 var timeoutID;
+var hide;
 
 var Grey = document.getElementById("greys");
 var LBlue = document.getElementById("lblues");
@@ -22,6 +23,7 @@ var Blue = document.getElementById("blues");
 var Purple = document.getElementById("purples");
 var Pink = document.getElementById("pinks");
 var Red = document.getElementById("reds");
+var Money = document.getElementById("moneys");
 
 var GreySell = document.getElementById("greysSell");
 var LBlueSell = document.getElementById("lbluesSell");
@@ -38,7 +40,11 @@ function display() {
     Purple.firstChild.data = "Restricted: " + purples;
     Pink.firstChild.data = "Classified: " + pinks;
     Red.firstChild.data = "Covert: " + reds;
-
+    var rounded = Math.round(money * 10) / 10;
+    var fixed = rounded.toFixed(1);
+    parseFloat(money.toFixed(2));
+    Money.firstChild.data = "Money: " + fixed;
+    
     GreySell.firstChild.data = "Comsumer: " + greys;
     LBlueSell.firstChild.data = "Industrial: " + lblues;
     BlueSell.firstChild.data = "Mil-Spec: " + blues;
@@ -213,4 +219,12 @@ function showSell() {
     var f = document.getElementById('sell');
     //e.style.display = 'none';
     f.style.display = 'block';
+}
+
+function showDiv(show) {
+    "use strict";
+    $('#' + hide).hide();
+    $('#' + show).show();
+    hide = show;
+    console.log(hide);
 }

@@ -29,7 +29,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a onclick="showSell()">Sell</a></li>
+                            <li><a onclick="showDiv('sell')">Sell</a></li>
+                            <li><a onclick="showDiv('shop')">Shop</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -52,15 +53,43 @@
                 <td width="300px"><h4 id="purples" style="color: rgb(136, 71, 255)">Restricted: 0</h4></td>
                 <td width="300px"><h4 id="pinks" style="color: rgb(211, 44, 230)">Classified: 0</h4></td>
                 <td width="300px"><h4 id="reds" style="color: rgb(235, 75, 75)">Covert: 0</h4></td>
+                <td width="300px"><h4 id="moneys" style="color: green">Money: 0</h4></td>
                 <td><button type="button" class="btn btn-primary btn" onclick="idle()">Idle</button></td>
             </tr>
         </table>
     </div>
+    
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2"><h4>Consumer: 0</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><h4>Industrial: 0</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><h4>Mil-Spec: 0</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><h4>Restricted: 0</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><h4>Classified: 0</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><h4>Covert: 0</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><h4>Money: 0</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><h4>Keys: 0</h4></div>
+        </div>
+    </div> -->
 
 
 
 
-
+     
 
 
 
@@ -98,6 +127,15 @@
             </tr>
             <tr>
                 <td width="300px"><h4 style="display: none" id="sellWarning">You dont have enough of the selected weapon group!</h4></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="container" id="shop">
+        <table>
+            <tr>
+                <td width="100px"><h4>Key</h4></td>
+                <td><button type="button" class="btn btn-primary btn">$2.49</button></td>
             </tr>
         </table>
     </div>
