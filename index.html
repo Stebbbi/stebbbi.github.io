@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>IdleCSGO - Idle</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">IdleCSGO</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a onclick="showSell()">Sell</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <div class="container">
+        <table cellspacing="6">
+            <tr>
+                <td width="300px"><h4 id="greys" style="color: rgb(176, 195, 217)">Comsumer: 0</h4></td>
+                <td width="300px"><h4 id="lblues" style="color: rgb(94, 152, 217)">Industrial: 0</h4></td>
+                <td width="400px"><h4 id="blues" style="color: rgb(75, 105, 255)">Mil-Spec: 0</h4></td>
+                <td width="300px"><h4 id="purples" style="color: rgb(136, 71, 255)">Restricted: 0</h4></td>
+                <td width="300px"><h4 id="pinks" style="color: rgb(211, 44, 230)">Classified: 0</h4></td>
+                <td width="300px"><h4 id="reds" style="color: rgb(235, 75, 75)">Covert: 0</h4></td>
+                <td><button type="button" class="btn btn-primary btn" onclick="idle()">Idle</button></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="container" style="display: none" id="sell">
+        <table>
+            <tr>
+                <td><h3 id="greysSell" style="color: rgb(176, 195, 217)">Comsumer: 0</h3></td>
+                <td><button type="button" class="btn btn-primary btn" onclick="sell('grey')">Sell</button></td>
+                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('grey')">Trade Up</button></td>
+            </tr>
+            <tr>
+                <td><h3 id="lbluesSell" style="color: rgb(94, 152, 217)">Industrial: 0</h3></td>
+                <td><button type="button" class="btn btn-primary btn" onclick="sell('lblue')">Sell</button></td>
+                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('lblue')">Trade Up</button></td>
+            </tr>
+            <tr>
+                <td><h3 id="bluesSell" style="color: rgb(75, 105, 255)">Mil-Spec: 0</h3></td>
+                <td><button type="button" class="btn btn-primary btn" onclick="sell('blue')">Sell</button></td>
+                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('blue')">Trade Up</button></td>
+            </tr>
+            <tr>
+                <td><h3 id="purplesSell" style="color: rgb(136, 71, 255)">Restricted: 0</h3></td>
+                <td><button type="button" class="btn btn-primary btn" onclick="sell('purple')">Sell</button></td>
+                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('purple')">Trade Up</button></td>
+            </tr>
+            <tr>
+                <td><h3 id="pinksSell" style="color: rgb(211, 44, 230)">Classified: 0</h3></td>
+                <td><button type="button" class="btn btn-primary btn" onclick="sell('pink')">Sell</button></td>
+                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('pink')">Trade Up</button></td>
+            </tr>
+            <tr>
+                <td><h3 id="redsSell" style="color: rgb(235, 75, 75)">Covert: 0</h3></td>
+                <td><button type="button" class="btn btn-primary btn" onclick="sell('red')">Sell</button></td>
+            </tr>
+            <tr>
+                <td width="300px"><h4 style="display: none" id="sellWarning">You dont have enough of the selected weapon group!</h4></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/main.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
