@@ -16,6 +16,7 @@ var money = 0;
 
 var timeoutID;
 var hide;
+var keys = 0;
 
 var Grey = document.getElementById("greys");
 var LBlue = document.getElementById("lblues");
@@ -203,6 +204,27 @@ function tradeup(x) {
     default:
         console.log("Something isnt right." + x);
         break;
+    }
+}
+
+function buy(x) {
+    switch (x) {
+    case 'key';
+        if (money - 2.49 < 0) {
+            showWarning('buyWarning');
+        } else {
+            keys = keys + 1;
+            money = money - 2.49;
+            display();
+        }
+    case 'idleAccount';
+        if (money - 2.49 < 0) {
+            showWarning('buyWarning');
+        } else {
+            idelAccounts = idleAccounts + 1;
+            money = money - iAccounts.cost;
+            display();
+        }
     }
 }
 
