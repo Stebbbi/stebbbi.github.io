@@ -228,25 +228,9 @@ function buy(x) {
     }
 }
 
-//function showIdle() {
-//    var e = document.getElementById('idle');
-//    var f = document.getElementById('sell');
-//    e.style.display = 'block';
-//    f.style.display = 'none';
-//}
-
-function showSell() {
-    "use strict";
-    //var e = document.getElementById('idle');
-    var f = document.getElementById('sell');
-    //e.style.display = 'none';
-    f.style.display = 'block';
-}
-
 function showDiv(show) {
     "use strict";
     $('#' + hide).hide();
     $('#' + show).show();
     hide = show;
-    console.log(hide);
 }
