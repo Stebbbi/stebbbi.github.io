@@ -16,7 +16,9 @@ var money = 0;
 
 var timeoutID;
 var hide;
+
 var keys = 0;
+var idleAccounts = 0;
 
 var Grey = document.getElementById("greys");
 var LBlue = document.getElementById("lblues");
@@ -32,6 +34,12 @@ var BlueSell = document.getElementById("bluesSell");
 var PurpleSell = document.getElementById("purplesSell");
 var PinkSell = document.getElementById("pinksSell");
 var RedSell = document.getElementById("redsSell");
+
+items = {
+    "Key": ["Key", "2.49"],
+    "idleAccount": ["IdleAccount", "50"],
+    "SellBot": ["SellBot", "100"]
+};
 
 function display() {
     "use strict";
@@ -209,23 +217,39 @@ function tradeup(x) {
 
 function buy(x) {
     switch (x) {
-    case 'key';
+    case 'key':
         if (money - 2.49 < 0) {
             showWarning('buyWarning');
+            break;
         } else {
             keys = keys + 1;
-            money = money - 2.49;
+            money = money - items.Key[1];
             display();
+            break;
         }
-    case 'idleAccount';
-        if (money - 2.49 < 0) {
+    case 'idleAccount':
+        if (money - items.idleAccount[1] < 0) {
             showWarning('buyWarning');
+            break;
         } else {
-            idelAccounts = idleAccounts + 1;
-            money = money - iAccounts.cost;
+            idleAccounts = idleAccounts + 1;
+            money = money - items.idleAccount[1];
             display();
+            break;
         }
+    case 'SellBot':
+        if (money - items.SellBot[1] < 0) {
+            showWarning('buyWarning');
+            break;
+        } else {
+            idleAccounts = idleAccounts + 1;
+            money = money - items.SellBot[1];
+            display();
+            break;
+        }
+    default:
     }
+    
 }
 
 function showDiv(show) {
@@ -234,3 +258,4 @@ function showDiv(show) {
     $('#' + show).show();
     hide = show;
 }
+            

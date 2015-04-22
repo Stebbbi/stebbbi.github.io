@@ -7,6 +7,8 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
@@ -132,10 +134,57 @@
     </div>
 
     <div class="container" id="shop" style="display: none">
-        <table>
+        <div class="row" id="contentRow">
+            <div class="col-md-3">
+                <h4>Keys: 0</h4>
+                <h4>Idle Accounts: 0</h4>
+                <h4>SellBots: 0</h4>
+            </div>
+            <div class="col-md-9">
+                <div class="well well-outline well-sm">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h4>Key</h4>
+                            <p class="no-margin">
+                                <em>Buy a key to open a case.</em>
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-lg btn-block shopButton" onclick="buy('key')">$2.49</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="well well-outline well-sm">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h4>Idle Account</h4>
+                            <p class="no-margin">
+                                <em>Buy an idle account to idle for you. <em class="muted">+1 skin every 2 seconds.</em></em>
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-lg btn-block shopButton" onclick="buy('key')">$50</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="well well-outline well-sm">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h4>SellBot</h4>
+                            <p class="no-margin">
+                                <em>Buy a bot that sells skins for you. -1 skin/sec</em>
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-lg btn-block shopButton" onclick="buy('key')">$100</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
             <tr>
-                <td width="100px"><h4>Key</h4></td>
-                <td><button type="button" class="btn btn-primary btn" onclick="buy('key')">$2.49</button></td>
+               <td width="230px"><div class="alert alert-danger" role="alert" id="buyWarning" style="display: none">You dont have enough money!</div></td>
             </tr>
         </table>
     </div>

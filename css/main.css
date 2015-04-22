@@ -1,0 +1,24 @@
+#contentRow {
+    padding: 5px 0;
+    position: relative;
+}
+
+#shop {
+    position: relative;
+    margin-top: 10px;
+}
+
+.shopButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.muted {
+    color: blue;
+}
+
+.no-margin {
+    margin: 0px;
+}
