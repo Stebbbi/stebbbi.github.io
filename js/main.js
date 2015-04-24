@@ -143,16 +143,16 @@ function sell(x) {
     "use strict";
     switch (x) {
     case 'grey':
-        if (greys === 0) {
+        if (player.greys === 0) {
             showWarning('sellWarning');
         } else {
             player.money = player.money + greyPrice;
-           player.greys = player.greys - 1;
+            player.greys = player.greys - 1;
             display();
         }
         break;
     case 'lblue':
-        if (lblues === 0) {
+        if (player.lblues === 0) {
             showWarning('sellWarning');
         } else {
             player.money = player.money + lbluePrice;
@@ -161,7 +161,7 @@ function sell(x) {
         }
         break;
     case 'blue':
-        if (blues === 0) {
+        if (player.blues === 0) {
             showWarning('sellWarning');
         } else {
             player.money = player.money + bluePrice;
@@ -170,7 +170,7 @@ function sell(x) {
         }
         break;
     case 'purple':
-        if (purples === 0) {
+        if (player.purples === 0) {
             showWarning('sellWarning');
         } else {
             player.money = player.money + purplePrice;
@@ -179,7 +179,7 @@ function sell(x) {
         }
         break;
     case 'pink':
-        if (pinks === 0) {
+        if (player.pinks === 0) {
             showWarning('sellWarning');
         } else {
             player.money = player.money + pinkPrice;
@@ -188,7 +188,7 @@ function sell(x) {
         }
         break;
     case 'red':
-        if (reds === 0) {
+        if (player.reds === 0) {
             showWarning('sellWarning');
         } else {
             player.money = player.money + redPrice;
@@ -206,7 +206,7 @@ function tradeup(x) {
     "use strict";
     switch (x) {
     case 'grey':
-        if (greys < 10) {
+        if (player.greys < 10) {
             showWarning('tradeupWarning');
         } else {
            player.greys = player.greys - 10;
@@ -215,7 +215,7 @@ function tradeup(x) {
         }
         break;
     case 'lblue':
-        if (lblues < 10) {
+        if (player.lblues < 10) {
             showWarning('tradeupWarning');
         } else {
             player.lblues = player.lblues - 10;
@@ -224,7 +224,7 @@ function tradeup(x) {
         }
         break;
     case 'blue':
-        if (blues < 10) {
+        if (player.blues < 10) {
             showWarning('tradeupWarning');
         } else {
             player.blues = player.blues - 10;
@@ -233,7 +233,7 @@ function tradeup(x) {
         }
         break;
     case 'purple':
-        if (purples < 10) {
+        if (player.purples < 10) {
             showWarning('tradeupWarning');
         } else {
             player.purples = player.purples - 10;
@@ -242,7 +242,7 @@ function tradeup(x) {
         }
         break;
     case 'pink':
-        if (pinks < 10) {
+        if (player.pinks < 10) {
             showWarning('tradeupWarning');
         } else {
             player.pinks = player.pinks - 10;
