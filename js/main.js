@@ -53,7 +53,6 @@ function display() {
     document.getElementById("bluesTrade").firstChild.data = player.blues;
     document.getElementById("purplesTrade").firstChild.data = player.purples;
     document.getElementById("pinksTrade").firstChild.data = player.pinks;
-    document.getElementById("redsTrade").firstChild.data = player.reds;
     
     document.getElementById("keys").firstChild.data = player.keys;
     document.getElementById("iAcc").firstChild.data = player.idleAccounts;
