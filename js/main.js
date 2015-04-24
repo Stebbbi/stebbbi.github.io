@@ -10,6 +10,7 @@ var player = {
     idleAccounts: 0,
     SellBots: 0,
     inc: 0,
+    sell: 0,
     click: 1,
     iAccCost: 50,
     SellBotCost: 100
@@ -64,9 +65,9 @@ function display() {
     PinkSell.firstChild.data = "Classified: " + player.pinks;
     RedSell.firstChild.data = "Covert: " + player.reds;
     
-    document.getElementById("keys").firstChild.data = "Keys: " + player.keys;
-    document.getElementById("iAcc").firstChild.data = "Idle Accounts: " + player.idleAccounts;
-    document.getElementById("sellbot").firstChild.data = "SellBots: " + player.SellBots;
+    document.getElementById("keys").firstChild.data = player.keys;
+    document.getElementById("iAcc").firstChild.data = player.idleAccounts;
+    document.getElementById("sellbot").firstChild.data = player.SellBots;
 }
 
 function idle() {
@@ -127,6 +128,15 @@ function get_cookie(cookie_name) {
     }
     c_value = atob(unescape(c_value.substring(c_start,c_end)));
     return JSON.parse(c_value);
+}
+
+function reset_cookie(cookie_name, value) {
+    expiry = new Date();   
+    expiry.setTime(new Date().getTime() - (10 * 60 * 1000)); 
+    var c_value = escape(btoa(JSON.stringify(value))) + 
+    "; expires=" + expiry.toUTCString();
+    document.cookie=cookie_name + "=" + c_value;
+    location.reload();
 }
 
 function sell(x) {
@@ -275,6 +285,7 @@ function buy(x) {
             break;
         } else {
             player.SellBots += 1;
+            player.sell += 1;
             player.money = player.money - player.SellBotCost;
             display();
             break;
@@ -297,6 +308,10 @@ function save_game() {
     showWarning('saveInfo');
 }
 
+function reset_game() {
+    reset_cookie('IdleCSGO_save', player);
+}
+
 function showDiv(show) {
     "use strict";
     $('#' + hide).hide();
@@ -316,6 +331,26 @@ function autoInc() {
     }
 }
 
+function autoSell() {
+    for (var e = 0; e < player.sell; e++) {
+        if (player.greys > 0) {
+            sell('grey');
+        } else if (player.lblues > 0) {
+            sell('lblue');
+        } else if (player.blues > 0) {
+            sell('blue');
+        } else if (player.purples > 0) {
+            sell('purple');
+        } else if (player.pinks > 0) {
+            sell('pink');
+        } else if (player.reds > 0) {
+            sell('red');
+        }
+    }
+    setTimeout(autoSell, 1000);
+}
+
 load_game();
 autoInc();
+autoSell();
 setInterval(function () { save_game(); }, 10000);           
