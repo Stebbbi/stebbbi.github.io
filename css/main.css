@@ -22,3 +22,7 @@
 .no-margin {
     margin: 0px;
 }
+
+#saveInfo {
+    height: 50px;
+}

@@ -33,6 +33,7 @@
                         <ul class="nav navbar-nav">
                             <li><a onclick="showDiv('sell')">Sell</a></li>
                             <li><a onclick="showDiv('shop')">Shop</a></li>
+                            <li><a id="saveInfo" style="display: none">Game Saved!</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -136,9 +137,9 @@
     <div class="container" id="shop" style="display: none">
         <div class="row" id="contentRow">
             <div class="col-md-3">
-                <h4>Keys: 0</h4>
-                <h4>Idle Accounts: 0</h4>
-                <h4>SellBots: 0</h4>
+                <h4 id="keys">Keys: 0</h4>
+                <h4 id="iAcc">Idle Accounts: 0</h4>
+                <h4 id="sellbot">SellBots: 0</h4>
             </div>
             <div class="col-md-9">
                 <div class="well well-outline well-sm">
@@ -163,7 +164,7 @@
                             </p>
                         </div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-primary btn-lg btn-block shopButton" onclick="buy('key')">$50</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block shopButton" onclick="buy('idleAccount')">$50</button>
                         </div>
                     </div>
                 </div>
@@ -176,7 +177,7 @@
                             </p>
                         </div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-primary btn-lg btn-block shopButton" onclick="buy('key')">$100</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block shopButton" onclick="buy('SellBot')">$100</button>
                         </div>
                     </div>
                 </div>
