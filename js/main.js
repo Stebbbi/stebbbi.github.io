@@ -64,7 +64,7 @@ function display() {
     PinkSell.firstChild.data = "Classified: " + player.pinks;
     RedSell.firstChild.data = "Covert: " + player.reds;
     
-    document.getElementById("keys").firstChild.data = "Keys: " + keys;
+    document.getElementById("keys").firstChild.data = "Keys: " + player.keys;
     document.getElementById("iAcc").firstChild.data = "Idle Accounts: " + player.idleAccounts;
     document.getElementById("sellbot").firstChild.data = "SellBots: " + player.SellBots;
 }
@@ -253,7 +253,7 @@ function buy(x) {
             showWarning('buyWarning');
             break;
         } else {
-            keys = keys + 1;
+            player.keys = player.keys + 1;
             player.money = player.money - keyCost;
             display();
             break;
