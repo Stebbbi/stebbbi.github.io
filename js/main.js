@@ -28,42 +28,32 @@ var keyCost = 2.49;
 var timeoutID;
 var hide;
 
-var inc = 0;
-
-var Grey = document.getElementById("greys");
-var LBlue = document.getElementById("lblues");
-var Blue = document.getElementById("blues");
-var Purple = document.getElementById("purples");
-var Pink = document.getElementById("pinks");    
-var Red = document.getElementById("reds");
-var Money = document.getElementById("moneys");
-
-var GreySell = document.getElementById("greysSell");
-var LBlueSell = document.getElementById("lbluesSell");
-var BlueSell = document.getElementById("bluesSell");
-var PurpleSell = document.getElementById("purplesSell");
-var PinkSell = document.getElementById("pinksSell");
-var RedSell = document.getElementById("redsSell");
-
 function display() {
     "use strict";
-    Grey.firstChild.data = "Comsumer: " + player.greys;
-    LBlue.firstChild.data = "Industrial: " + player.lblues;
-    Blue.firstChild.data = "Mil-Spec: " + player.blues;
-    Purple.firstChild.data = "Restricted: " + player.purples;
-    Pink.firstChild.data = "Classified: " + player.pinks;
-    Red.firstChild.data = "Covert: " + player.reds;
+    document.getElementById("greys").firstChild.data = "Comsumer: " + player.greys;
+    document.getElementById("lblues").firstChild.data = "Industrial: " + player.lblues;
+    document.getElementById("blues").firstChild.data = "Mil-Spec: " + player.blues;
+    document.getElementById("purples").firstChild.data = "Restricted: " + player.purples;
+    document.getElementById("pinks").firstChild.data = "Classified: " + player.pinks;
+    document.getElementById("reds").firstChild.data = "Covert: " + player.reds;
     var rounded = Math.round(player.money * 10) / 10;
     var fixed = rounded.toFixed(1);
     parseFloat(player.money.toFixed(2));
-    Money.firstChild.data = "Money: " + fixed;
+    document.getElementById("moneys").firstChild.data = "Money: " + fixed;
     
-    GreySell.firstChild.data = "Comsumer: " + player.greys;
-    LBlueSell.firstChild.data = "Industrial: " + player.lblues;
-    BlueSell.firstChild.data = "Mil-Spec: " + player.blues;
-    PurpleSell.firstChild.data = "Restricted: " + player.purples;
-    PinkSell.firstChild.data = "Classified: " + player.pinks;
-    RedSell.firstChild.data = "Covert: " + player.reds;
+    document.getElementById("greysSell").firstChild.data = player.greys;
+    document.getElementById("lbluesSell").firstChild.data = player.lblues;
+    document.getElementById("bluesSell").firstChild.data = player.blues;
+    document.getElementById("purplesSell").firstChild.data = player.purples;
+    document.getElementById("pinksSell").firstChild.data = player.pinks;
+    document.getElementById("redsSell").firstChild.data = player.reds;
+    
+    document.getElementById("greysTrade").firstChild.data = player.greys;
+    document.getElementById("lbluesTrade").firstChild.data = player.lblues;
+    document.getElementById("bluesTrade").firstChild.data = player.blues;
+    document.getElementById("purplesTrade").firstChild.data = player.purples;
+    document.getElementById("pinksTrade").firstChild.data = player.pinks;
+    document.getElementById("redsTrade").firstChild.data = player.reds;
     
     document.getElementById("keys").firstChild.data = player.keys;
     document.getElementById("iAcc").firstChild.data = player.idleAccounts;
@@ -94,16 +84,9 @@ function idle() {
     }
 }
 
-//function hideWarning() {
-//    $("#warning").fadeOut(1);
-//}
-
 function showWarning(x) {
     "use strict";
     $('#' + x).stop().dequeue().stop().show().delay(3000).fadeOut(1000);
-    //$("#warning").fadeIn(1);
-    //clearTimeout(timeoutID);
-    //timeoutID = setTimeout(hideWarning, 3000);
 }
 
 function set_cookie(cookie_name,value) {

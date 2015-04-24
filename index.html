@@ -62,76 +62,62 @@
         </table>
     </div>
 
-    <!-- <div class="container-fluid">
-<div class="row">
-<div class="col-md-2"><h4>Consumer: 0</h4></div>
-</div>
-<div class="row">
-<div class="col-md-2"><h4>Industrial: 0</h4></div>
-</div>
-<div class="row">
-<div class="col-md-2"><h4>Mil-Spec: 0</h4></div>
-</div>
-<div class="row">
-<div class="col-md-2"><h4>Restricted: 0</h4></div>
-</div>
-<div class="row">
-<div class="col-md-2"><h4>Classified: 0</h4></div>
-</div>
-<div class="row">
-<div class="col-md-2"><h4>Covert: 0</h4></div>
-</div>
-<div class="row">
-<div class="col-md-2"><h4>Money: 0</h4></div>
-</div>
-<div class="row">
-<div class="col-md-2"><h4>Keys: 0</h4></div>
-</div>
-</div> -->
-
-
-
-
-
-
-
 
 
     <div class="container" style="display: none" id="sell">
-        <table>
-            <tr>
-                <td><h3 id="greysSell" style="color: rgb(176, 195, 217)">Comsumer: 0</h3></td>
-                <td><button type="button" class="btn btn-primary btn" onclick="sell('grey')">Sell</button></td>
-                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('grey')">Trade Up</button></td>
-            </tr>
-            <tr>
-                <td><h3 id="lbluesSell" style="color: rgb(94, 152, 217)">Industrial: 0</h3></td>
-                <td><button type="button" class="btn btn-primary btn" onclick="sell('lblue')">Sell</button></td>
-                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('lblue')">Trade Up</button></td>
-            </tr>
-            <tr>
-                <td><h3 id="bluesSell" style="color: rgb(75, 105, 255)">Mil-Spec: 0</h3></td>
-                <td><button type="button" class="btn btn-primary btn" onclick="sell('blue')">Sell</button></td>
-                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('blue')">Trade Up</button></td>
-            </tr>
-            <tr>
-                <td><h3 id="purplesSell" style="color: rgb(136, 71, 255)">Restricted: 0</h3></td>
-                <td><button type="button" class="btn btn-primary btn" onclick="sell('purple')">Sell</button></td>
-                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('purple')">Trade Up</button></td>
-            </tr>
-            <tr>
-                <td><h3 id="pinksSell" style="color: rgb(211, 44, 230)">Classified: 0</h3></td>
-                <td><button type="button" class="btn btn-primary btn" onclick="sell('pink')">Sell</button></td>
-                <td style="position: relative; left: 10px"><button type="button" class="btn btn-primary btn" onclick="tradeup('pink')">Trade Up</button></td>
-            </tr>
-            <tr>
-                <td><h3 id="redsSell" style="color: rgb(235, 75, 75)">Covert: 0</h3></td>
-                <td><button type="button" class="btn btn-primary btn" onclick="sell('red')">Sell</button></td>
-            </tr>
-            <tr>
-                <td width="300px"><h4 style="display: none" id="sellWarning">You dont have enough of the selected weapon group!</h4></td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Sell Skins</h3>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="list-group">
+                            <a onclick="sell('grey')" href="#" class="list-group-item">Consumer <span class="badge" id="greysSell">0</span>
+                            </a>
+                            <a onclick="sell('lblue')" href="#" class="list-group-item">Industrial <span class="badge" id="lbluesSell">0</span>
+                            </a>
+                            <a onclick="sell('blue')" href="#" class="list-group-item">Mil-Spec <span class="badge" id="bluesSell">0</span>
+                            </a>
+                            <a onclick="sell('purple')" href="#" class="list-group-item">Restricted <span class="badge" id="purplesSell">0</span>
+                            </a>
+                            <a onclick="sell('pink')" href="#" class="list-group-item">Classified <span class="badge" id="pinksSell">0</span>
+                            </a>
+                            <a onclick="sell('red')" href="#" class="list-group-item">Covert <span class="badge" id="redsSell">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-danger" role="alert" id="sellWarning" style="display: none">You don't have enough of the selected item!</div>
+                <div class="alert alert-danger" role="alert" id="tradeupWarning" style="display: none">You don't have enough of the selected item!</div>
+                <div class="alert alert-danger" role="alert" id="redTrade" style="display: none">You can't trade up Covert skins!</div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Tradeup Skins</h3>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="list-group">
+                            <a onclick="tradeup('grey')" href="#" class="list-group-item">Consumer <span class="badge" id="greysTrade">0</span>
+                            </a>
+                            <a onclick="tradeup('lblue')" href="#" class="list-group-item">Industrial <span class="badge" id="lbluesTrade">0</span>
+                            </a>
+                            <a onclick="tradeup('blue')" href="#" class="list-group-item">Mil-Spec <span class="badge" id="bluesTrade">0</span>
+                            </a>
+                            <a onclick="tradeup('purple')" href="#" class="list-group-item">Restricted <span class="badge" id="purplesTrade">0</span>
+                            </a>
+                            <a onclick="tradeup('pink')" href="#" class="list-group-item">Classified <span class="badge" id="pinksTrade">0</span>
+                            </a>
+                            <a onclick="showWarning('redTrade')" href="#" class="list-group-item">Covert <span class="badge">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="container" id="shop" style="display: none">
@@ -204,14 +190,11 @@
                 </div>
             </div>
         </div>
-        <tr>
-            <td width="230px"><div class="alert alert-danger" role="alert" id="buyWarning" style="display: none">You dont have enough money!</div></td>
-        </tr>
-        </table>
+        <div class="alert alert-danger" role="alert" id="buyWarning" style="display: none">You don't have enough money!</div>
     </div>
 
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
