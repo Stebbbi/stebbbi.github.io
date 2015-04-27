@@ -67,23 +67,23 @@
     <div class="container" style="display: none" id="sell">
         <div class="row">
             <div class="col-md-3">
-                <div class="panel panel-primary">
+                <div class="panel panel-primary" id="sellone">
                     <div class="panel-heading">
                         <h3 class="panel-title">Sell Skins</h3>
                     </div>
                     <div class="panel-footer">
                         <div class="list-group">
-                            <a onclick="sell('grey')" href="#" class="list-group-item">Consumer <span class="badge" id="greysSell">0</span>
+                            <a onclick="sell(event, 'grey')" class="list-group-item">Consumer <span class="badge" id="greysSell">0</span>
                             </a>
-                            <a onclick="sell('lblue')" href="#" class="list-group-item">Industrial <span class="badge" id="lbluesSell">0</span>
+                            <a onclick="sell(event, 'lblue')" class="list-group-item">Industrial <span class="badge" id="lbluesSell">0</span>
                             </a>
-                            <a onclick="sell('blue')" href="#" class="list-group-item">Mil-Spec <span class="badge" id="bluesSell">0</span>
+                            <a onclick="sell(event, 'blue')" class="list-group-item">Mil-Spec <span class="badge" id="bluesSell">0</span>
                             </a>
-                            <a onclick="sell('purple')" href="#" class="list-group-item">Restricted <span class="badge" id="purplesSell">0</span>
+                            <a onclick="sell(event, 'purple')" class="list-group-item">Restricted <span class="badge" id="purplesSell">0</span>
                             </a>
-                            <a onclick="sell('pink')" href="#" class="list-group-item">Classified <span class="badge" id="pinksSell">0</span>
+                            <a onclick="sell(event, 'pink')" class="list-group-item">Classified <span class="badge" id="pinksSell">0</span>
                             </a>
-                            <a onclick="sell('red')" href="#" class="list-group-item">Covert <span class="badge" id="redsSell">0</span>
+                            <a onclick="sell(event, 'red')" class="list-group-item">Covert <span class="badge" id="redsSell">0</span>
                             </a>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ var player = {
     click: 1,
     iAccCost: 50,
     SellBotCost: 100
-}
+};
 
 var greyPrice = 0.1;
 var lbluePrice = 0.3;
@@ -78,7 +78,7 @@ function idle() {
         player.lblues = player.lblues + 1;
         display();
     } else if (ran > 100 && ran < 900) {
-       player.greys = player.greys + 1;
+        player.greys = player.greys + 1;
         display();
     }
 }
@@ -88,7 +88,7 @@ function showWarning(x) {
     $('#' + x).stop().dequeue().stop().show().delay(3000).fadeOut(1000);
 }
 
-function set_cookie(cookie_name,value) {
+function set_cookie(cookie_name, value) {
     expiry = new Date();   
     expiry.setTime(new Date().getTime() + (10 * 60 * 1000)); 
     var c_value = escape(btoa(JSON.stringify(value))) + 
@@ -102,13 +102,13 @@ function get_cookie(cookie_name) {
     if (c_start == -1) {
         c_start = c_value.indexOf(cookie_name + "=");
     }
-    if (c_start == -1) return false;
+    if (c_start === -1) return false;
     c_start = c_value.indexOf("=", c_start) + 1;
     var c_end = c_value.indexOf(";", c_start);
-    if (c_end == -1) {
+    if (c_end === -1) {
         c_end = c_value.length;
     }
-    c_value = atob(unescape(c_value.substring(c_start,c_end)));
+    c_value = atob(unescape(c_value.substring(c_start, c_end)));
     return JSON.parse(c_value);
 }
 
@@ -117,65 +117,101 @@ function reset_cookie(cookie_name, value) {
     expiry.setTime(new Date().getTime() - (10 * 60 * 1000)); 
     var c_value = escape(btoa(JSON.stringify(value))) + 
     "; expires=" + expiry.toUTCString();
-    document.cookie=cookie_name + "=" + c_value;
+    document.cookie = cookie_name + "=" + c_value;
     location.reload();
 }
 
-function sell(x) {
+function sell(e, x) {
     "use strict";
     switch (x) {
     case 'grey':
         if (player.greys === 0) {
             showWarning('sellWarning');
         } else {
-            player.money = player.money + greyPrice;
-            player.greys = player.greys - 1;
-            display();
+            if (e.shiftKey) {
+                player.money = player.money + (player.greys * greyPrice);
+                player.greys = player.greys - player.greys;
+                display();
+            } else {
+                player.money = player.money + greyPrice;
+                player.greys = player.greys - 1;
+                display();
+            }
         }
         break;
     case 'lblue':
         if (player.lblues === 0) {
             showWarning('sellWarning');
         } else {
-            player.money = player.money + lbluePrice;
-            player.lblues = player.lblues - 1;
-            display();
+            if (e.shiftKey) {
+                player.money = player.money + (player.lblues * lbluePrice);
+                player.lblues = player.lblues - player.lblues;
+                display();
+            } else {
+                player.money = player.money + lbluePrice;
+                player.lblues = player.lblues - 1;
+                display();
+            }
         }
         break;
     case 'blue':
         if (player.blues === 0) {
             showWarning('sellWarning');
         } else {
-            player.money = player.money + bluePrice;
-            player.blues = player.blues - 1;
-            display();
+            if (e.shiftKey) {
+                player.money = player.money + (player.blues * bluePrice);
+                player.blues = player.blues - player.blues;
+                display();
+            } else {
+                player.money = player.money + bluePrice;
+                player.blues = player.blues - 1;
+                display();
+            }
         }
         break;
     case 'purple':
         if (player.purples === 0) {
             showWarning('sellWarning');
         } else {
-            player.money = player.money + purplePrice;
-            player.purples = player.purples - 1;
-            display();
+            if (e.shiftKey) {
+                player.money = player.money + (player.purples * purplePrice);
+                player.purples = player.purples - player.purples;
+                display();
+            } else {
+                player.money = player.money + purplePrice;
+                player.purples = player.purples - 1;
+                display();
+            }
         }
         break;
     case 'pink':
         if (player.pinks === 0) {
             showWarning('sellWarning');
         } else {
-            player.money = player.money + pinkPrice;
-            player.pinks = player.pinks - 1;
-            display();
+            if (e.shiftKey) {
+                player.money = player.money + (player.pinks * pinkPrice);
+                player.pinks = player.pinks - player.pinks;
+                display();
+            } else {
+                player.money = player.money + pinkPrice;
+                player.pinks = player.pinks - 1;
+                display();
+            }
         }
         break;
     case 'red':
         if (player.reds === 0) {
             showWarning('sellWarning');
         } else {
-            player.money = player.money + redPrice;
-            player.reds = player.reds - 1;
-            display();
+            if (e.shiftKey) {
+                player.money = player.money + (player.reds * redPrice);
+                player.reds = player.reds - player.reds;
+                display();
+            } else {
+                player.money = player.money + redPrice;
+                player.reds = player.reds - 1;
+                display();
+            }
         }
         break;
     default:
@@ -316,17 +352,17 @@ function autoInc() {
 function autoSell() {
     for (var e = 0; e < player.sell; e++) {
         if (player.greys > 0) {
-            sell('grey');
+            sell('', 'grey');
         } else if (player.lblues > 0) {
-            sell('lblue');
+            sell('', 'lblue');
         } else if (player.blues > 0) {
-            sell('blue');
+            sell('', 'blue');
         } else if (player.purples > 0) {
-            sell('purple');
+            sell('', 'purple');
         } else if (player.pinks > 0) {
-            sell('pink');
+            sell('', 'pink');
         } else if (player.reds > 0) {
-            sell('red');
+            sell('', 'red');
         }
     }
     setTimeout(autoSell, 1000);
@@ -335,4 +371,4 @@ function autoSell() {
 load_game();
 autoInc();
 autoSell();
-setInterval(function () { save_game(); }, 10000);           
+setInterval(function () { save_game(); }, 10000);
