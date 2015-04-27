@@ -128,7 +128,7 @@ function sell(e, x) {
         if (player.greys === 0) {
             showWarning('sellWarning');
         } else {
-            if (e.ctrlKey) {
+            if (e.altKey) {
                 player.money = player.money + (player.greys * greyPrice);
                 player.greys = player.greys - player.greys;
                 display();
@@ -143,7 +143,7 @@ function sell(e, x) {
         if (player.lblues === 0) {
             showWarning('sellWarning');
         } else {
-            if (e.ctrlKey) {
+            if (e.altKey) {
                 player.money = player.money + (player.lblues * lbluePrice);
                 player.lblues = player.lblues - player.lblues;
                 display();
@@ -158,7 +158,7 @@ function sell(e, x) {
         if (player.blues === 0) {
             showWarning('sellWarning');
         } else {
-            if (e.ctrlKey) {
+            if (e.altKey) {
                 player.money = player.money + (player.blues * bluePrice);
                 player.blues = player.blues - player.blues;
                 display();
@@ -173,7 +173,7 @@ function sell(e, x) {
         if (player.purples === 0) {
             showWarning('sellWarning');
         } else {
-            if (e.ctrlKey) {
+            if (e.altKey) {
                 player.money = player.money + (player.purples * purplePrice);
                 player.purples = player.purples - player.purples;
                 display();
@@ -188,7 +188,7 @@ function sell(e, x) {
         if (player.pinks === 0) {
             showWarning('sellWarning');
         } else {
-            if (e.ctrlKey) {
+            if (e.altKey) {
                 player.money = player.money + (player.pinks * pinkPrice);
                 player.pinks = player.pinks - player.pinks;
                 display();
@@ -203,7 +203,7 @@ function sell(e, x) {
         if (player.reds === 0) {
             showWarning('sellWarning');
         } else {
-            if (e.ctrlKey) {
+            if (e.altKey) {
                 player.money = player.money + (player.reds * redPrice);
                 player.reds = player.reds - player.reds;
                 display();
