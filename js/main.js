@@ -40,7 +40,7 @@ function display() {
     var rounded = Math.round(player.money * 10) / 10;
     var fixed = rounded.toFixed(1);
     parseFloat(player.money.toFixed(2));
-    document.getElementById("moneys").firstChild.data = "Money: " + fixed;
+    document.getElementById("moneys").firstChild.data = "Money: $" + fixed;
 
     document.getElementById("greysSell").firstChild.data = player.greys;
     document.getElementById("lbluesSell").firstChild.data = player.lblues;
@@ -54,10 +54,14 @@ function display() {
     document.getElementById("bluesTrade").firstChild.data = player.blues;
     document.getElementById("purplesTrade").firstChild.data = player.purples;
     document.getElementById("pinksTrade").firstChild.data = player.pinks;
+    document.getElementById("redsTrade").firstChild.data = player.reds;
 
     document.getElementById("keys").firstChild.data = player.keys;
     document.getElementById("iAcc").firstChild.data = player.idleAccounts;
     document.getElementById("sellbot").firstChild.data = player.SellBots;
+    
+    document.getElementById("iAccCost").firstChild.data = "$" + player.iAccCost;
+    document.getElementById("sellbotCost").firstChild.data = "$" + player.SellBotCost;
 }
 
 function idle() {
@@ -295,6 +299,10 @@ function buy(x) {
                 player.inc = player.inc + 0.5;
                 player.idleAccounts += 1;
                 player.money = player.money - player.iAccCost;
+                
+                var AccCost = player.iAccCost * 1.25;
+                var rounded = Math.round(AccCost * 10) / 10;
+                player.iAccCost = rounded;
                 display();
                 break;
             }
@@ -306,6 +314,10 @@ function buy(x) {
                 player.SellBots += 1;
                 player.sell += 1;
                 player.money = player.money - player.SellBotCost;
+                
+                var BotCost = player.SellBotCost * 1.25;
+                var rounded = Math.round(BotCost * 10) / 10;
+                player.SellBotCost = rounded;
                 display();
                 break;
             }
