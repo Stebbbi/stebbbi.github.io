@@ -29,6 +29,11 @@ var keyCost = 2.49;
 var timeoutID;
 var hide;
 
+function prettify(input){
+    var output = Math.round(input * 100)/100;
+    return output;
+}
+
 function display() {
     "use strict";
     document.getElementById("greys").firstChild.data = "Comsumer: " + player.greys;
@@ -37,10 +42,7 @@ function display() {
     document.getElementById("purples").firstChild.data = "Restricted: " + player.purples;
     document.getElementById("pinks").firstChild.data = "Classified: " + player.pinks;
     document.getElementById("reds").firstChild.data = "Covert: " + player.reds;
-    var rounded = Math.round(player.money * 10) / 10;
-    var fixed = rounded.toFixed(1);
-    parseFloat(player.money.toFixed(2));
-    document.getElementById("moneys").firstChild.data = "Money: $" + fixed;
+    document.getElementById("moneys").firstChild.data = "Money: $" + prettify(player.money);
 
     document.getElementById("greysSell").firstChild.data = player.greys;
     document.getElementById("lbluesSell").firstChild.data = player.lblues;
@@ -301,8 +303,7 @@ function buy(x) {
                 player.money = player.money - player.iAccCost;
                 
                 var AccCost = player.iAccCost * 1.25;
-                var rounded = Math.round(AccCost * 10) / 10;
-                player.iAccCost = rounded;
+                player.iAccCost = prettify(AccCost);
                 display();
                 break;
             }
@@ -316,8 +317,7 @@ function buy(x) {
                 player.money = player.money - player.SellBotCost;
                 
                 var BotCost = player.SellBotCost * 1.25;
-                var rounded = Math.round(BotCost * 10) / 10;
-                player.SellBotCost = rounded;
+                player.SellBotCost = prettify(BotCost);
                 display();
                 break;
             }

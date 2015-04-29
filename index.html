@@ -31,8 +31,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a onclick="showDiv('sell')">Sell</a></li>
-                            <li><a onclick="showDiv('shop')">Shop</a></li>
+                            <li><a href="#" onclick="showDiv('sell')">Sell</a></li>
+                            <li><a href="#" onclick="showDiv('shop')">Shop</a></li>
+                            <li><a href="#" onclick="showDiv('settings')">Settings</a></li>
                             <li><a id="saveInfo" style="display: none">Game Saved!</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -64,7 +65,7 @@
 
 
 
-    <div class="container" style="display: none" id="sell">
+    <div class="container divContainer" style="display: none" id="sell">
         <div class="row">
             <div class="col-md-3">
                 <div class="panel panel-primary" id="sellone">
@@ -120,7 +121,7 @@
         </div>
     </div>
 
-    <div class="container" id="shop" style="display: none">
+    <div class="container divContainer" id="shop" style="display: none">
         <div class="row">
             <div class="col-md-3">
                 <div class="panel panel-primary">
@@ -191,6 +192,21 @@
             </div>
         </div>
         <div class="alert alert-danger" role="alert" id="buyWarning" style="display: none">You don't have enough money!</div>
+    </div>
+
+    <div class="container divContainer" id="settings" style="display: none">
+    	<div class="row">
+    		<div class="col-md-3">
+    			
+    		</div>
+    		<div class="col-md-9">
+    			<div class="row">
+                    <div class="col-md-3">  
+    				    <button type="button" class="btn btn-primary btn btn-block" onclick="reset_game()">Reset Game</button>
+                    </div>
+    			</div>
+    		</div>
+    	</div>
     </div>
 
     <script src="js/main.js"></script>
