@@ -36,7 +36,7 @@ function prettify(input){
 
 function display() {
     "use strict";
-    document.getElementById("greys").firstChild.data = "Comsumer: " + player.greys;
+    document.getElementById("greys").firstChild.data = "Consumer: " + player.greys;
     document.getElementById("lblues").firstChild.data = "Industrial: " + player.lblues;
     document.getElementById("blues").firstChild.data = "Mil-Spec: " + player.blues;
     document.getElementById("purples").firstChild.data = "Restricted: " + player.purples;
