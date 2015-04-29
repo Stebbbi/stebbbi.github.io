@@ -91,9 +91,19 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="alert alert-danger" role="alert" id="sellWarning" style="display: none">You don't have enough of the selected item!</div>
-                <div class="alert alert-danger" role="alert" id="tradeupWarning" style="display: none">You don't have enough of the selected item!</div>
-                <div class="alert alert-danger" role="alert" id="redTrade" style="display: none">You can't trade up Covert skins!</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Info</h2>
+                        <p>Here you can sell or trade up skins that you have gathered. You can sell all your skins by holding the Alt key when selling.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" role="alert" id="sellWarning" style="display: none">You don't have enough of the selected item!</div>
+                        <div class="alert alert-danger" role="alert" id="tradeupWarning" style="display: none">You don't have enough of the selected item!</div>
+                        <div class="alert alert-danger" role="alert" id="redTrade" style="display: none">You can't trade up Covert skins!</div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-3">
                 <div class="panel panel-primary">
@@ -163,9 +173,18 @@
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-6">
                                 <em>Buy an idle account to idle for you</em><br>
                                 <em class="muted">Gains 1 skin every 2 seconds</em>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="btn-toolbar" role="toolbar">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-default" onclick="iAccs('minus')">-</button>
+                                        <button type="button" class="btn btn-default" id="iAccAmount">0</button>
+                                        <button type="button" class="btn btn-default" onclick="iAccs('plus')">+</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <button type="button" class="btn btn-primary btn-lg btn-block shopButton" id="iAccCost" onclick="buy('idleAccount')">$50</button>
@@ -179,9 +198,18 @@
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-6">
                                 <em>Buy a bot that sells skins for you</em><br>
                                 <em class="muted"> Sells 1 skin/sec</em>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="btn-toolbar" role="toolbar">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-default" onclick="sellbots('minus')">-</button>
+                                        <button type="button" class="btn btn-default" id="sellbotAmount">0</button>
+                                        <button type="button" class="btn btn-default" onclick="sellbots('plus')">+</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <button type="button" class="btn btn-primary btn-lg btn-block shopButton" id="sellbotCost" onclick="buy('SellBot')">$100</button>
@@ -192,23 +220,28 @@
             </div>
         </div>
         <div class="alert alert-danger" role="alert" id="buyWarning" style="display: none">You don't have enough money!</div>
+        <div class="alert alert-danger" role="alert" id="notEnough" style="display: none">0 is the limit!</div>
+        <div class="alert alert-danger" role="alert" id="tooMany" style="display: none">You don't have enough of the selected item!</div>
     </div>
 
     <div class="container divContainer" id="settings" style="display: none">
-    	<div class="row">
-    		<div class="col-md-3">
-    			
-    		</div>
-    		<div class="col-md-9">
-    			<div class="row">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-9">
+                <div class="row">
                     <div class="col-md-3">  
-    				    <button type="button" class="btn btn-primary btn btn-block" onclick="reset_game()">Reset Game</button>
+                        <button type="button" class="btn btn-primary btn btn-block" onclick="reset_game()">Reset Game</button>
                     </div>
-    			</div>
-    		</div>
-    	</div>
+                    <div class="col-md-3">  
+                        <button type="button" class="btn btn-primary btn btn-block" onclick="save_game()">Save Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
