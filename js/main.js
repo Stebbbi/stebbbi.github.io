@@ -19,11 +19,11 @@ var player = {
 };
 
 var greyPrice = 0.1;
-var lbluePrice = 0.3;
-var bluePrice = 0.5;
-var purplePrice = 1;
-var pinkPrice = 5;
-var redPrice = 10;
+var lbluePrice = 0.5;
+var bluePrice = 1;
+var purplePrice = 5;
+var pinkPrice = 10;
+var redPrice = 50;
 
 var keyCost = 2.49;
 
