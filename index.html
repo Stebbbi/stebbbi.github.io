@@ -64,7 +64,12 @@
         </table>
     </div>
 
-
+    <div class="container" id="welcome">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Welcome!</strong> to IdleCSGO. Click the Idle button on the right to collect skins and sell them for money and use the money to buy Accounts and Bots to automate the progress for you.
+        </div>
+    </div>
 
     <div class="container divContainer" id="sell">
         <div class="row">
@@ -75,17 +80,17 @@
                     </div>
                     <div class="panel-footer">
                         <div class="list-group">
-                            <a onclick="sell(event, 'grey')" class="list-group-item">Consumer <span class="badge" id="greysSell">0</span>
+                            <a onclick="sell(event, 'grey')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Consumer <span class="badge" id="greysSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'lblue')" class="list-group-item">Industrial <span class="badge" id="lbluesSell">0</span>
+                            <a onclick="sell(event, 'lblue')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Industrial <span class="badge" id="lbluesSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'blue')" class="list-group-item">Mil-Spec <span class="badge" id="bluesSell">0</span>
+                            <a onclick="sell(event, 'blue')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Mil-Spec <span class="badge" id="bluesSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'purple')" class="list-group-item">Restricted <span class="badge" id="purplesSell">0</span>
+                            <a onclick="sell(event, 'purple')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Restricted <span class="badge" id="purplesSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'pink')" class="list-group-item">Classified <span class="badge" id="pinksSell">0</span>
+                            <a onclick="sell(event, 'pink')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Classified <span class="badge" id="pinksSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'red')" class="list-group-item">Covert <span class="badge" id="redsSell">0</span>
+                            <a onclick="sell(event, 'red')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Covert <span class="badge" id="redsSell">0</span>
                             </a>
                         </div>
                     </div>
@@ -113,17 +118,17 @@
                     </div>
                     <div class="panel-footer">
                         <div class="list-group">
-                            <a onclick="tradeup('grey')" href="#" class="list-group-item">Consumer <span class="badge" id="greysTrade">0</span>
+                            <a onclick="tradeup('grey')" href="#" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Convert 10 Consumer to 1 Industrial">Consumer <span class="badge" id="greysTrade">0</span>
                             </a>
-                            <a onclick="tradeup('lblue')" href="#" class="list-group-item">Industrial <span class="badge" id="lbluesTrade">0</span>
+                            <a onclick="tradeup('lblue')" href="#" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Convert 10 Industrial to 1 Mil-Spec">Industrial <span class="badge" id="lbluesTrade">0</span>
                             </a>
-                            <a onclick="tradeup('blue')" href="#" class="list-group-item">Mil-Spec <span class="badge" id="bluesTrade">0</span>
+                            <a onclick="tradeup('blue')" href="#" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Convert 10 Mil-Spec to 1 Restricted">Mil-Spec <span class="badge" id="bluesTrade">0</span>
                             </a>
-                            <a onclick="tradeup('purple')" href="#" class="list-group-item">Restricted <span class="badge" id="purplesTrade">0</span>
+                            <a onclick="tradeup('purple')" href="#" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Convert 10 Restricted to 1 Classified">Restricted <span class="badge" id="purplesTrade">0</span>
                             </a>
-                            <a onclick="tradeup('pink')" href="#" class="list-group-item">Classified <span class="badge" id="pinksTrade">0</span>
+                            <a onclick="tradeup('pink')" href="#" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Convert 10 Classified to 1 Covert">Classified <span class="badge" id="pinksTrade">0</span>
                             </a>
-                            <a onclick="showWarning('redTrade')" href="#" class="list-group-item">Covert <span class="badge" id="redsTrade">0</span>
+                            <a onclick="showWarning('redTrade')" href="#" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="You cant trade up Covert but I keep this for the looks">Covert <span class="badge" id="redsTrade">0</span>
                             </a>
                         </div>
                     </div>
@@ -174,9 +179,12 @@
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <em>Buy an idle account to idle for you</em><br>
                                 <em class="muted">Gains 1 skin every 2 seconds</em>
+                            </div>
+                            <div class="col-md-2">
+                               <p>Idle Accounts Active: </p>
                             </div>
                             <div class="col-md-3">
                                 <div class="btn-toolbar" role="toolbar">
@@ -199,9 +207,12 @@
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <em>Buy a bot that sells skins for you</em><br>
                                 <em class="muted"> Sells 1 skin/sec</em>
+                            </div>
+                            <div class="col-md-2">
+                               <p>SellBots Active: </p>
                             </div>
                             <div class="col-md-3">
                                 <div class="btn-toolbar" role="toolbar">
@@ -252,6 +263,9 @@
         ga('create', 'UA-62426881-1', 'auto');
         ga('send', 'pageview');
 
+    </script>
+    <script>
+        $(function () { $("[data-toggle='tooltip']").tooltip(); });
     </script>
 
     <script src="js/main.js"></script>

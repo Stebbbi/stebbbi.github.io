@@ -366,6 +366,7 @@ function load_game() {
     var save_data = get_cookie('IdleCSGO_save');
     console.log(save_data);
     if (!save_data) return;
+    $('#welcome').hide();
     console.log(save_data);
     player = save_data;
     display();
