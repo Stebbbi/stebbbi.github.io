@@ -13,8 +13,8 @@ var player = {
     inc: 0,
     sell: 0,
     click: 1,
-    iAccCost: 50,
-    SellBotCost: 100,
+    iAccCost: 14.99,
+    SellBotCost: 50,
     idleAccountsActive: 0,
     SellBotsActive: 0
 };
@@ -382,7 +382,6 @@ function reset_game() {
 }
 
 function showDiv(show) {
-    alert(show);
     $('#' + hide).hide();
     $('#' + show).show();
     hide = show;
