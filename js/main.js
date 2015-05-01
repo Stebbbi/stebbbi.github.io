@@ -1,3 +1,4 @@
+
 var player = {
     greys: 0,
     lblues: 0,
@@ -61,10 +62,10 @@ function display() {
     document.getElementById("keys").firstChild.data = player.keys;
     document.getElementById("iAcc").firstChild.data = player.idleAccounts;
     document.getElementById("sellbot").firstChild.data = player.SellBots;
-    
+
     document.getElementById("iAccAmount").firstChild.data = player.idleAccountsActive;
     document.getElementById("sellbotAmount").firstChild.data = player.SellBotsActive;
-    
+
     document.getElementById("iAccCost").firstChild.data = "$" + player.iAccCost;
     document.getElementById("sellbotCost").firstChild.data = "$" + player.SellBotCost;
 }
@@ -75,19 +76,19 @@ function idle() {
         player.reds = player.reds + 1;
         display();
     } else if (ran > 1 && ran < 5) {
-        player.pinks = player.pinks + 1;
+        player.pinks += 1;
         display();
-    } else if (ran > 5 && ran < 15) {
-        player.purples = player.purples + 1;
+    } else if (ran > 4 && ran < 15) {
+        player.purples += 1;
         display();
-    } else if (ran > 15 && ran < 50) {
-        player.blues = player.blues + 1;
+    } else if (ran > 14 && ran < 50) {
+        player.blues += 1;
         display();
-    } else if (ran > 50 && ran < 100) {
-        player.lblues = player.lblues + 1;
+    } else if (ran > 49 && ran < 100) {
+        player.lblues += 1;
         display();
-    } else if (ran > 100 && ran < 900) {
-        player.greys = player.greys + 1;
+    } else if (ran > 99 && ran < 900) {
+        player.greys += 1;
         display();
     }
 }
@@ -101,13 +102,13 @@ function set_cookie(cookie_name, value) {
     expiry.setTime(new Date().getTime() + (10 * 60 * 1000)); 
     var c_value = escape(btoa(JSON.stringify(value))) + 
         "; expires=" + expiry.toUTCString();
-    document.cookie=cookie_name + "=" + c_value;
+    document.cookie = cookie_name + "=" + c_value;
 }
 
 function get_cookie(cookie_name) {
     var c_value = document.cookie;
     var c_start = c_value.indexOf(" " + cookie_name + "=");
-    if (c_start == -1) {
+    if (c_start === -1) {
         c_start = c_value.indexOf(cookie_name + "=");
     }
     if (c_start === -1) return false;
@@ -141,7 +142,7 @@ function sell(e, x) {
                 display();
             } else {
                 player.money = player.money + greyPrice;
-                player.greys = player.greys - 1;
+                player.greys -= 1;
                 display();
             }
         }
@@ -156,7 +157,7 @@ function sell(e, x) {
                 display();
             } else {
                 player.money = player.money + lbluePrice;
-                player.lblues = player.lblues - 1;
+                player.lblues -= 1;
                 display();
             }
         }
@@ -171,7 +172,7 @@ function sell(e, x) {
                 display();
             } else {
                 player.money = player.money + bluePrice;
-                player.blues = player.blues - 1;
+                player.blues -= 1;
                 display();
             }
         }
@@ -186,7 +187,7 @@ function sell(e, x) {
                 display();
             } else {
                 player.money = player.money + purplePrice;
-                player.purples = player.purples - 1;
+                player.purples -= 1;
                 display();
             }
         }
@@ -201,7 +202,7 @@ function sell(e, x) {
                 display();
             } else {
                 player.money = player.money + pinkPrice;
-                player.pinks = player.pinks - 1;
+                player.pinks -= 1;
                 display();
             }
         }
@@ -216,7 +217,7 @@ function sell(e, x) {
                 display();
             } else {
                 player.money = player.money + redPrice;
-                player.reds = player.reds - 1;
+                player.reds -= 1;
                 display();
             }
         }
@@ -233,8 +234,8 @@ function tradeup(x) {
         if (player.greys < 10) {
             showWarning('tradeupWarning');
         } else {
-            player.greys = player.greys - 10;
-            player.lblues = player.lblues + 1;
+            player.greys -= 10;
+            player.lblues += 1;
             display();
         }
         break;
@@ -242,8 +243,8 @@ function tradeup(x) {
         if (player.lblues < 10) {
             showWarning('tradeupWarning');
         } else {
-            player.lblues = player.lblues - 10;
-            player.blues = player.blues + 1;
+            player.lblues -= 10;
+            player.blues += 1;
             display();
         }
         break;
@@ -251,8 +252,8 @@ function tradeup(x) {
         if (player.blues < 10) {
             showWarning('tradeupWarning');
         } else {
-            player.blues = player.blues - 10;
-            player.purples = player.purples + 1;
+            player.blues -= 10;
+            player.purples += 1;
             display();
         }
         break;
@@ -260,8 +261,8 @@ function tradeup(x) {
         if (player.purples < 10) {
             showWarning('tradeupWarning');
         } else {
-            player.purples = player.purples - 10;
-            player.pinks = player.pinks + 1;
+            player.purples -= 10;
+            player.pinks += 1;
             display();
         }
         break;
@@ -269,8 +270,8 @@ function tradeup(x) {
         if (player.pinks < 10) {
             showWarning('tradeupWarning');
         } else {
-            player.pinks = player.pinks - 10;
-            player.reds = player.reds + 1;
+            player.pinks -= 10;
+            player.reds += 1;
             display();
         }
         break;
@@ -287,8 +288,8 @@ function buy(x) {
             showWarning('buyWarning');
             break;
         } else {
-            player.keys = player.keys + 1;
-            player.money = player.money - keyCost;
+            player.keys += 1;
+            player.money -= keyCost;
             display();
             break;
         }
@@ -299,7 +300,7 @@ function buy(x) {
         } else {
             player.idleAccounts += 1;
             player.idleAccountsActive += 1;
-            player.money = player.money - player.iAccCost;
+            player.money -= player.iAccCost;
 
             var AccCost = player.iAccCost * 1.25;
             player.iAccCost = prettify(AccCost);
@@ -314,7 +315,7 @@ function buy(x) {
             player.SellBots += 1;
             player.sell += 1;
             player.SellBotsActive += 1;
-            player.money = player.money - player.SellBotCost;
+            player.money -= player.SellBotCost;
 
             var BotCost = player.SellBotCost * 1.25;
             player.SellBotCost = prettify(BotCost);
@@ -331,32 +332,32 @@ function iAccs(y) {
         if(player.idleAccountsActive == 0) {
             showWarning('notEnough');
         } else {
-            player.idleAccountsActive = player.idleAccountsActive - 1;
+            player.idleAccountsActive -= 1;
             display();
         }
     } else {
         if(player.idleAccounts <= player.idleAccountsActive) {
             showWarning('tooMany');
         } else {
-            player.idleAccountsActive = player.idleAccountsActive + 1;
+            player.idleAccountsActive += 1;
             display();
         }
     }
 }
 
 function sellbots(y) {
-    if(y == 'minus') {
-        if(player.SellBotsActive == 0) {
+    if(y === 'minus') {
+        if (player.SellBotsActive === 0) {
             showWarning('notEnough');
         } else {
-            player.SellBotsActive = player.SellBotsActive - 1;
+            player.SellBotsActive -= 1;
             display();
         }
     } else {
-        if(player.SellBots <= player.SellBotsActive) {
+        if (player.SellBots <= player.SellBotsActive) {
             showWarning('tooMany');
         } else {
-            player.SellBotsActive = player.SellBotsActive + 1;
+            player.SellBotsActive += 1;
             display();
         }
     }
@@ -381,6 +382,7 @@ function reset_game() {
 }
 
 function showDiv(show) {
+    alert(show);
     $('#' + hide).hide();
     $('#' + show).show();
     hide = show;
