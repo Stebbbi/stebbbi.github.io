@@ -19,6 +19,41 @@ var player = {
     SellBotsActive: 0
 };
 
+function createRequest() {
+  var result = null;
+  if (window.XMLHttpRequest) {
+    // FireFox, Safari, etc.
+    result = new XMLHttpRequest();
+    if (typeof XMLHttpRequest.overrideMimeType != 'undefined') {
+      result.overrideMimeType('text/xml'); // Or anything else
+    }
+  }
+  else if (window.ActiveXObject) {
+    // MSIE
+    result = new ActiveXObject("Microsoft.XMLHTTP");
+  } 
+  else {
+    // No known mechanism -- consider aborting the application
+  }
+  return result;
+}
+
+var req = createRequest(); // defined above
+// Create the callback:
+req.onreadystatechange = function() {
+  if (req.readyState != 4) return; // Not there yet
+  if (req.status != 200) {
+    // Handle request failure here...
+    return;
+  }
+  // Request successful, read the response
+  var resp = req.responseText;
+  // ... and use it as needed by your app.
+}
+
+req.open("GET", "https://api.twitch.tv/kraken/streams?game=Counter-Strike:%20Global%20Offensive", true);
+req.send();
+
 var greyPrice = 0.1;
 var lbluePrice = 0.5;
 var bluePrice = 1;
