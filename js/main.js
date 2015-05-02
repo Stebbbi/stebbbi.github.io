@@ -19,40 +19,28 @@ var player = {
     SellBotsActive: 0
 };
 
-function createRequest() {
-  var result = null;
-  if (window.XMLHttpRequest) {
-    // FireFox, Safari, etc.
-    result = new XMLHttpRequest();
-    if (typeof XMLHttpRequest.overrideMimeType != 'undefined') {
-      result.overrideMimeType('text/xml'); // Or anything else
-    }
-  }
-  else if (window.ActiveXObject) {
-    // MSIE
-    result = new ActiveXObject("Microsoft.XMLHTTP");
-  } 
-  else {
-    // No known mechanism -- consider aborting the application
-  }
-  return result;
+function loadPages(stream) {
+    var loc = "http://www.twitch.tv/" + stream + "/embed";
+    document.getElementById('myFrame').setAttribute('src', loc);
 }
 
-var req = createRequest(); // defined above
-// Create the callback:
-req.onreadystatechange = function() {
-  if (req.readyState != 4) return; // Not there yet
-  if (req.status != 200) {
-    // Handle request failure here...
-    return;
-  }
-  // Request successful, read the response
-  var resp = req.responseText;
-  // ... and use it as needed by your app.
-}
+function refreshStream() {
+    $(document).ready(function($) {
+        $.getJSON('https://api.twitch.tv/kraken/streams?game=Counter-Strike:+Global+Offensive&limit=1&callback=?', function (data) {
+            console.log(data.streams[0].channel.name);
+            var stream = data.streams[0].channel.name;
 
-req.open("GET", "https://api.twitch.tv/kraken/streams?game=Counter-Strike:%20Global%20Offensive", true);
-req.send();
+            var currStream = document.getElementById('myIframe').src;
+            console.log(currStream);
+
+            if (currStream == "http://www.twitch.tv/" + stream + "/embed") {
+                return;
+            } else {
+                loadPages(stream);
+            }
+        });
+    });
+}
 
 var greyPrice = 0.1;
 var lbluePrice = 0.5;
@@ -459,4 +447,5 @@ function autoSell() {
 load_game();
 autoInc();
 autoSell();
+refreshStream();
 setInterval(function () { save_game(); }, 10000);

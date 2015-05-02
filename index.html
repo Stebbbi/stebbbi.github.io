@@ -66,8 +66,8 @@
 
     <div class="container" id="welcome">
         <div class="alert alert-success alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Welcome!</strong> to IdleCSGO. Click the Idle button on the right to collect skins and sell them for money and use the money to buy Accounts and Bots to automate the progress for you.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Welcome!</strong> to IdleCSGO. Click the Idle button on the right to collect skins and sell them for money and use the money to buy Accounts and Bots to automate the progress for you.
         </div>
     </div>
 
@@ -97,19 +97,9 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>Info</h2>
-                        <p>Here you can sell or trade up skins that you have gathered. You can sell all your skins by holding the Alt key when selling.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger" role="alert" id="sellWarning" style="display: none">You don't have enough of the selected item!</div>
-                        <div class="alert alert-danger" role="alert" id="tradeupWarning" style="display: none">You don't have enough of the selected item!</div>
-                        <div class="alert alert-danger" role="alert" id="redTrade" style="display: none">You can't trade up Covert skins!</div>
-                    </div>
-                </div>
+                <iframe id="myIframe" type="text/html" width="550" height="340"
+                        src="http://www.twitch.tv/faceittv/embed"
+                        frameborder="0"></iframe>
             </div>
             <div class="col-md-3">
                 <div class="panel panel-primary">
@@ -134,6 +124,14 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert" id="sellWarning" style="display: none">You don't have enough of the selected item!</div>
+                    <div class="alert alert-danger" role="alert" id="tradeupWarning" style="display: none">You don't have enough of the selected item!</div>
+                    <div class="alert alert-danger" role="alert" id="redTrade" style="display: none">You can't trade up Covert skins!</div>
+                </div>
+            </div>
+            
         </div>
     </div>
 
@@ -184,7 +182,7 @@
                                 <em class="muted">Gains 1 skin every 2 seconds</em>
                             </div>
                             <div class="col-md-2">
-                               <p>Idle Accounts Active: </p>
+                                <p>Idle Accounts Active: </p>
                             </div>
                             <div class="col-md-3">
                                 <div class="btn-toolbar" role="toolbar">
@@ -212,7 +210,7 @@
                                 <em class="muted"> Sells 1 skin/sec</em>
                             </div>
                             <div class="col-md-2">
-                               <p>SellBots Active: </p>
+                                <p>SellBots Active: </p>
                             </div>
                             <div class="col-md-3">
                                 <div class="btn-toolbar" role="toolbar">
