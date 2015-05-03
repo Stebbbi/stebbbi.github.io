@@ -21,17 +21,15 @@ var player = {
 
 function loadPages(stream) {
     var loc = "http://www.twitch.tv/" + stream + "/embed";
-    document.getElementById('myFrame').setAttribute('src', loc);
+    document.getElementById('myIframe').setAttribute('src', loc);
 }
 
 function refreshStream() {
     $(document).ready(function($) {
         $.getJSON('https://api.twitch.tv/kraken/streams?game=Counter-Strike:+Global+Offensive&limit=1&callback=?', function (data) {
-            console.log(data.streams[0].channel.name);
             var stream = data.streams[0].channel.name;
 
             var currStream = document.getElementById('myIframe').src;
-            console.log(currStream);
 
             if (currStream == "http://www.twitch.tv/" + stream + "/embed") {
                 return;
@@ -155,196 +153,196 @@ function reset_cookie(cookie_name, value) {
 
 function sell(e, x) {
     switch (x) {
-    case 'grey':
-        if (player.greys === 0) {
-            showWarning('sellWarning');
-        } else {
-            if (e.altKey) {
-                player.money = player.money + (player.greys * greyPrice);
-                player.greys = player.greys - player.greys;
-                display();
+        case 'grey':
+            if (player.greys === 0) {
+                showWarning('sellWarning');
             } else {
-                player.money = player.money + greyPrice;
-                player.greys -= 1;
-                display();
+                if (e.altKey) {
+                    player.money = player.money + (player.greys * greyPrice);
+                    player.greys = player.greys - player.greys;
+                    display();
+                } else {
+                    player.money = player.money + greyPrice;
+                    player.greys -= 1;
+                    display();
+                }
             }
-        }
-        break;
-    case 'lblue':
-        if (player.lblues === 0) {
-            showWarning('sellWarning');
-        } else {
-            if (e.altKey) {
-                player.money = player.money + (player.lblues * lbluePrice);
-                player.lblues = player.lblues - player.lblues;
-                display();
+            break;
+        case 'lblue':
+            if (player.lblues === 0) {
+                showWarning('sellWarning');
             } else {
-                player.money = player.money + lbluePrice;
-                player.lblues -= 1;
-                display();
+                if (e.altKey) {
+                    player.money = player.money + (player.lblues * lbluePrice);
+                    player.lblues = player.lblues - player.lblues;
+                    display();
+                } else {
+                    player.money = player.money + lbluePrice;
+                    player.lblues -= 1;
+                    display();
+                }
             }
-        }
-        break;
-    case 'blue':
-        if (player.blues === 0) {
-            showWarning('sellWarning');
-        } else {
-            if (e.altKey) {
-                player.money = player.money + (player.blues * bluePrice);
-                player.blues = player.blues - player.blues;
-                display();
+            break;
+        case 'blue':
+            if (player.blues === 0) {
+                showWarning('sellWarning');
             } else {
-                player.money = player.money + bluePrice;
-                player.blues -= 1;
-                display();
+                if (e.altKey) {
+                    player.money = player.money + (player.blues * bluePrice);
+                    player.blues = player.blues - player.blues;
+                    display();
+                } else {
+                    player.money = player.money + bluePrice;
+                    player.blues -= 1;
+                    display();
+                }
             }
-        }
-        break;
-    case 'purple':
-        if (player.purples === 0) {
-            showWarning('sellWarning');
-        } else {
-            if (e.altKey) {
-                player.money = player.money + (player.purples * purplePrice);
-                player.purples = player.purples - player.purples;
-                display();
+            break;
+        case 'purple':
+            if (player.purples === 0) {
+                showWarning('sellWarning');
             } else {
-                player.money = player.money + purplePrice;
-                player.purples -= 1;
-                display();
+                if (e.altKey) {
+                    player.money = player.money + (player.purples * purplePrice);
+                    player.purples = player.purples - player.purples;
+                    display();
+                } else {
+                    player.money = player.money + purplePrice;
+                    player.purples -= 1;
+                    display();
+                }
             }
-        }
-        break;
-    case 'pink':
-        if (player.pinks === 0) {
-            showWarning('sellWarning');
-        } else {
-            if (e.altKey) {
-                player.money = player.money + (player.pinks * pinkPrice);
-                player.pinks = player.pinks - player.pinks;
-                display();
+            break;
+        case 'pink':
+            if (player.pinks === 0) {
+                showWarning('sellWarning');
             } else {
-                player.money = player.money + pinkPrice;
-                player.pinks -= 1;
-                display();
+                if (e.altKey) {
+                    player.money = player.money + (player.pinks * pinkPrice);
+                    player.pinks = player.pinks - player.pinks;
+                    display();
+                } else {
+                    player.money = player.money + pinkPrice;
+                    player.pinks -= 1;
+                    display();
+                }
             }
-        }
-        break;
-    case 'red':
-        if (player.reds === 0) {
-            showWarning('sellWarning');
-        } else {
-            if (e.altKey) {
-                player.money = player.money + (player.reds * redPrice);
-                player.reds = player.reds - player.reds;
-                display();
+            break;
+        case 'red':
+            if (player.reds === 0) {
+                showWarning('sellWarning');
             } else {
-                player.money = player.money + redPrice;
-                player.reds -= 1;
-                display();
+                if (e.altKey) {
+                    player.money = player.money + (player.reds * redPrice);
+                    player.reds = player.reds - player.reds;
+                    display();
+                } else {
+                    player.money = player.money + redPrice;
+                    player.reds -= 1;
+                    display();
+                }
             }
-        }
-        break;
-    default:
-        console.log("Something isnt right." + x);
-        break;
+            break;
+        default:
+            console.log("Something isnt right." + x);
+            break;
     }
 }
 
 function tradeup(x) {
     switch (x) {
-    case 'grey':
-        if (player.greys < 10) {
-            showWarning('tradeupWarning');
-        } else {
-            player.greys -= 10;
-            player.lblues += 1;
-            display();
-        }
-        break;
-    case 'lblue':
-        if (player.lblues < 10) {
-            showWarning('tradeupWarning');
-        } else {
-            player.lblues -= 10;
-            player.blues += 1;
-            display();
-        }
-        break;
-    case 'blue':
-        if (player.blues < 10) {
-            showWarning('tradeupWarning');
-        } else {
-            player.blues -= 10;
-            player.purples += 1;
-            display();
-        }
-        break;
-    case 'purple':
-        if (player.purples < 10) {
-            showWarning('tradeupWarning');
-        } else {
-            player.purples -= 10;
-            player.pinks += 1;
-            display();
-        }
-        break;
-    case 'pink':
-        if (player.pinks < 10) {
-            showWarning('tradeupWarning');
-        } else {
-            player.pinks -= 10;
-            player.reds += 1;
-            display();
-        }
-        break;
-    default:
-        console.log("Something isnt right." + x);
-        break;
+        case 'grey':
+            if (player.greys < 10) {
+                showWarning('tradeupWarning');
+            } else {
+                player.greys -= 10;
+                player.lblues += 1;
+                display();
+            }
+            break;
+        case 'lblue':
+            if (player.lblues < 10) {
+                showWarning('tradeupWarning');
+            } else {
+                player.lblues -= 10;
+                player.blues += 1;
+                display();
+            }
+            break;
+        case 'blue':
+            if (player.blues < 10) {
+                showWarning('tradeupWarning');
+            } else {
+                player.blues -= 10;
+                player.purples += 1;
+                display();
+            }
+            break;
+        case 'purple':
+            if (player.purples < 10) {
+                showWarning('tradeupWarning');
+            } else {
+                player.purples -= 10;
+                player.pinks += 1;
+                display();
+            }
+            break;
+        case 'pink':
+            if (player.pinks < 10) {
+                showWarning('tradeupWarning');
+            } else {
+                player.pinks -= 10;
+                player.reds += 1;
+                display();
+            }
+            break;
+        default:
+            console.log("Something isnt right." + x);
+            break;
     }
 }
 
 function buy(x) {
     switch (x) {
-    case 'key':
-        if (player.money - keyCost < 0) {
-            showWarning('buyWarning');
-            break;
-        } else {
-            player.keys += 1;
-            player.money -= keyCost;
-            display();
-            break;
-        }
-    case 'idleAccount':
-        if (player.money - player.iAccCost < 0) {
-            showWarning('buyWarning');
-            break;
-        } else {
-            player.idleAccounts += 1;
-            player.idleAccountsActive += 1;
-            player.money -= player.iAccCost;
+        case 'key':
+            if (player.money - keyCost < 0) {
+                showWarning('buyWarning');
+                break;
+            } else {
+                player.keys += 1;
+                player.money -= keyCost;
+                display();
+                break;
+            }
+        case 'idleAccount':
+            if (player.money - player.iAccCost < 0) {
+                showWarning('buyWarning');
+                break;
+            } else {
+                player.idleAccounts += 1;
+                player.idleAccountsActive += 1;
+                player.money -= player.iAccCost;
 
-            var AccCost = player.iAccCost * 1.25;
-            player.iAccCost = prettify(AccCost);
-            display();
-            break;
-        }
-    case 'SellBot':
-        if (player.money - player.SellBotCost < 0) {
-            showWarning('buyWarning');
-            break;
-        } else {
-            player.SellBots += 1;
-            player.sell += 1;
-            player.SellBotsActive += 1;
-            player.money -= player.SellBotCost;
+                var AccCost = player.iAccCost * 1.25;
+                player.iAccCost = prettify(AccCost);
+                display();
+                break;
+            }
+        case 'SellBot':
+            if (player.money - player.SellBotCost < 0) {
+                showWarning('buyWarning');
+                break;
+            } else {
+                player.SellBots += 1;
+                player.sell += 1;
+                player.SellBotsActive += 1;
+                player.money -= player.SellBotCost;
 
-            var BotCost = player.SellBotCost * 1.25;
-            player.SellBotCost = prettify(BotCost);
-            display();
-            break;
-        }
+                var BotCost = player.SellBotCost * 1.25;
+                player.SellBotCost = prettify(BotCost);
+                display();
+                break;
+            }
         default:
     }
 
@@ -388,13 +386,12 @@ function sellbots(y) {
 
 function load_game() {
     var save_data = get_cookie('IdleCSGO_save');
-    console.log(save_data);
     if (!save_data) return;
     $('#welcome').hide();
-    console.log(save_data);
     player = save_data;
     display();
 }
+
 function save_game() {
     set_cookie('IdleCSGO_save', player);
     showWarning('saveInfo');
