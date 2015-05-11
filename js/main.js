@@ -13,15 +13,42 @@ var player = {
     inc: 0,
     sell: 0,
     click: 1,
-    iAccCost: 14.99,
-    SellBotCost: 50,
+    iAccCost: 30,
+    SellBotCost: 75,
     idleAccountsActive: 0,
-    SellBotsActive: 0
+    SellBotsActive: 0,
+    streamStatus: 1,
+    idleTime: 1,
+    idleTimeCost: 15,
+    idleAmount: 0,
+    mirage: 0,
+    inferno: 0,
+    cache: 0,
+    cobblestone: 0,
+    nuke: 0,
+    overpass: 0,
+    train: 0,
+    reset: -10
 };
+
+var dust2 = ['grey', 'lblue', 'blue', 'purple'];
+var mirage = ['grey', 'lblue', 'blue', 'purple'];
+var inferno = ['grey', 'lblue', 'blue'];
+var cache = ['lblue', 'blue', 'purple'];
+var cobblestone = ['grey', 'lblue', 'blue', 'purple', 'pink', 'red'];
+var nuke = ['grey', 'lblue', 'blue', 'purple'];
+var overpass = ['grey', 'lblue', 'blue', 'purple', 'pink'];
+var train = ['grey', 'lblue', 'blue', 'purple'];
+
+var skins = [];
+
+
 
 function loadPages(stream) {
     var loc = "http://www.twitch.tv/" + stream + "/embed";
-    document.getElementById('myIframe').setAttribute('src', loc);
+    document.getElementById('chat_embed').setAttribute('src', loc);
+    document.getElementById('currentStream').firstChild.data = stream;
+    document.getElementById('incurrStream').setAttribute('placeholder', stream);
 }
 
 function refreshStream() {
@@ -29,7 +56,7 @@ function refreshStream() {
         $.getJSON('https://api.twitch.tv/kraken/streams?game=Counter-Strike:+Global+Offensive&limit=1&callback=?', function (data) {
             var stream = data.streams[0].channel.name;
 
-            var currStream = document.getElementById('myIframe').src;
+            var currStream = document.getElementById('chat_embed').src;
 
             if (currStream == "http://www.twitch.tv/" + stream + "/embed") {
                 return;
@@ -38,6 +65,36 @@ function refreshStream() {
             }
         });
     });
+}
+
+function streamChange(ele) {
+    if(event.keyCode == 13) {
+        loadPages(ele.value);       
+    }
+}
+
+function handleClick(cb) {
+    if(cb) {
+        player.streamStatus = 1;
+        alert(cb);
+        streamStat()
+    } else {
+        player.streamStatus = 0;
+        alert(cb);
+        streamStat()
+    }
+}
+
+function streamStat() {
+    if (player.streamStatus === 0) {
+        $('#chat_embed').hide()
+        document.getElementById('cmn-toggle-1').checked = false;
+        loadPages('');
+    } else {
+        $('#chat_embed').show()
+        document.getElementById('cmn-toggle-1').checked = true;
+        refreshStream();
+    }
 }
 
 var greyPrice = 0.1;
@@ -120,10 +177,11 @@ function showWarning(x) {
 
 function set_cookie(cookie_name, value) {
     expiry = new Date();   
-    expiry.setTime(new Date().getTime() + (10 * 60 * 1000)); 
+    expiry.setTime(new Date().getTime() + player.reset); 
     var c_value = escape(btoa(JSON.stringify(value))) + 
         "; expires=" + expiry.toUTCString();
     document.cookie = cookie_name + "=" + c_value;
+    player.reset = (10 * 60 * 1000);
 }
 
 function get_cookie(cookie_name) {
@@ -384,6 +442,21 @@ function sellbots(y) {
     }
 }
 
+function idleTimeInc(x) {
+    if (player.money - player.idleTimeCost < 0) {
+        showWarning('buyWarning');
+    } else {
+        player.idleTime += x;
+        player.idleAmount += 1;
+        player.money -= player.idleTimeCost;
+        
+        var idleCost = player.idleTimeCost * 1.25;
+        player.idleTimeCost = prettify(idleCost);
+        display();
+    }
+    
+}
+
 function load_game() {
     var save_data = get_cookie('IdleCSGO_save');
     if (!save_data) return;
@@ -442,6 +515,7 @@ function autoSell() {
 }
 
 load_game();
+streamStat();
 autoInc();
 autoSell();
 refreshStream();

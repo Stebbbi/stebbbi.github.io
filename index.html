@@ -80,26 +80,32 @@
                     </div>
                     <div class="panel-footer">
                         <div class="list-group">
-                            <a onclick="sell(event, 'grey')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Consumer <span class="badge" id="greysSell">0</span>
+                            <a onclick="sell(event, 'grey')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="left" data-original-title="Alt + click Sell all skins!">Consumer <span class="badge" id="greysSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'lblue')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Industrial <span class="badge" id="lbluesSell">0</span>
+                            <a onclick="sell(event, 'lblue')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="left" data-original-title="Alt + click Sell all skins!">Industrial <span class="badge" id="lbluesSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'blue')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Mil-Spec <span class="badge" id="bluesSell">0</span>
+                            <a onclick="sell(event, 'blue')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="left" data-original-title="Alt + click Sell all skins!">Mil-Spec <span class="badge" id="bluesSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'purple')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Restricted <span class="badge" id="purplesSell">0</span>
+                            <a onclick="sell(event, 'purple')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="left" data-original-title="Alt + click Sell all skins!">Restricted <span class="badge" id="purplesSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'pink')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Classified <span class="badge" id="pinksSell">0</span>
+                            <a onclick="sell(event, 'pink')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="left" data-original-title="Alt + click Sell all skins!">Classified <span class="badge" id="pinksSell">0</span>
                             </a>
-                            <a onclick="sell(event, 'red')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="top" data-original-title="Alt + click Sell all skins!">Covert <span class="badge" id="redsSell">0</span>
+                            <a onclick="sell(event, 'red')" class="list-group-item tooltip-show" data-toggle="tooltip" data-placement="left" data-original-title="Alt + click Sell all skins!">Covert <span class="badge" id="redsSell">0</span>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <iframe id="myIframe" type="text/html" width="550" height="340"
-                        src="http://www.twitch.tv/faceittv/embed"
-                        frameborder="0"></iframe>
+                <div width="550" height="340">
+                    <iframe frameborder="0" 
+                            scrolling="no" 
+                            id="chat_embed" 
+                            src="http://twitch.tv/faceittv/embed" 
+                            height="340" 
+                            width="550">
+                    </iframe>
+                </div>
             </div>
             <div class="col-md-3">
                 <div class="panel panel-primary">
@@ -135,8 +141,26 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-3">
                             <h2>Stream</h2>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="streamPos">
+                                <input id="incurrStream" type="text" class="form-control" placeholder="Stream" onkeydown="streamChange(this)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <h4 style="margin-top: 22%" id="currentStream">Stream</h4>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="switch">
+                                <input type="checkbox" id="cmn-toggle-1" onchange="handleClick(this.checked)" class="cmn-toggle cmn-toggle-round" checked>
+                                <label for="cmn-toggle-1"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <p>The stream plays the most viewed CS:GO streamer at the moment. If he goes offline you can just push the Refresh Stream button and it will get the most viewed streamer again.</p>
                         </div>
                     </div>
@@ -212,7 +236,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-primary btn-lg btn-block shopButton" id="iAccCost" onclick="buy('idleAccount')">$14.99</button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block shopButton" id="iAccCost" onclick="buy('idleAccount')">$30</button>
                             </div>
                         </div>
                     </div>
@@ -240,7 +264,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-primary btn-lg btn-block shopButton" id="sellbotCost" onclick="buy('SellBot')">$50</button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block shopButton" id="sellbotCost" onclick="buy('SellBot')">$75</button>
                             </div>
                         </div>
                     </div>
