@@ -76,22 +76,25 @@ function streamChange(ele) {
 function handleClick(cb) {
     if(cb) {
         player.streamStatus = 1;
-        alert(cb);
         streamStat()
     } else {
         player.streamStatus = 0;
-        alert(cb);
         streamStat()
     }
 }
 
 function streamStat() {
+    save_game();
     if (player.streamStatus === 0) {
         $('#chat_embed').hide()
+        $('#incurrStream').hide()
+        $('#currentStream').hide()
         document.getElementById('cmn-toggle-1').checked = false;
         loadPages('');
     } else {
         $('#chat_embed').show()
+        $('#incurrStream').show()
+        $('#currentStream').show()
         document.getElementById('cmn-toggle-1').checked = true;
         refreshStream();
     }
